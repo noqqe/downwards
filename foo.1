@@ -1,0 +1,199 @@
+
+.Dd $Mdocdate: 30.11.2019 $
+.Dt Wikipedia
+.Os
+.Sh NAME
+.Nm Manpage
+.Nd https://de.wikipedia.org/wiki/Manpage
+.Sh ZUSAMMENFASSUNG
+Manpages (nach dem Unix-Kommando man, was für englisch manual „Handbuch“ steht) sind eine Sammlung von Hilfe- und Dokumentationsseiten unter Unix und verwandten Betriebssystemen. Sie werden mit den Kommandos man und whatis durchsucht sowie ausgegeben. Zur schnellen Durchmusterung wird ein eigener Index, die sogenannte Whatis-Datenbank, angelegt. Manpages werden unter Zuhilfenahme des speziell konzipierten Macro-Pakets man mit dem Unix-Systemwerkzeug troff erzeugt.
+
+
+
+.Sh  Aufbau 
+
+
+=== Gliederung, Sections ===
+Manpages sind in weiten Teilen ausdrücklich nicht durch den POSIX-Standard (IEEE Std 1003.1) standardisiert, sondern die Standardisierung erfolgte lediglich für das absolut notwendige Minimum. Allerdings hat sich eine auf den meisten Unix-Derivaten ähnliche Einteilung in sogenannte Sections (Kapitel, Bereiche) eingebürgert, die sich an die ursprüngliche Einteilung anlehnt.
+Beispielhaft hier die Sektionen unter AIX (Titel in Locale C):
+
+(1) User Commands and Daemons („Anwender-Kommandos und Hintergrunddienste“)
+(2) System Calls and Kernel Services („Systemaufrufe und -dienste“)
+(3) Subroutines („Unterprogramme“)
+(4) Special Files, Device Drivers and Hardware („Geräte“)
+(5) Configuration Files („Konfigurationsdateien“)
+(6) Games („Spiele“)
+(7) Miscellaneous Commands („Verschiedenes“)
+(8) Administrative Commands and Daemons („Verwaltung“)So verweist die Notation jail(8) auf die Handbuchseite des FreeBSD Systemverwaltungs-Kommando jail, wohingegen die Notation jail(2) auf die Handbuchseite des FreeBSD Systemaufrufs jail hindeutet.
+
+
+=== Aufbau einzelner Manpages ===
+Eine ähnlich informelle Konvention wie bei den Kapiteln hat sich auch beim Aufbau der einzelnen Artikel eingebürgert. Stark von dieser Konvention weichen lediglich Systeme ab, die ihre Systemkommandos von der GNU-Initiative beziehen (Linux, FreeBSD etc.), weil das GNU-Projekt versucht, Manpages durch in deren Augen bessere Alternativen (Texinfo) abzulösen. Dennoch existieren Manpages auch für Programme, welche diese Art der Dokumentation nicht mitliefern, da solche für einzelne Linux-Distributionen erstellt worden sind (so schreibt das Debian-Projekt vor, dass alle Programme eine Manpage haben sollten); vielfach sind dies allerdings nur Kurzbeschreibungen, manchmal veraltet, meist nur in englischer Sprache verfügbar, darüber hinaus werden sie nicht bei jedem System mitgeliefert.
+Typischerweise ist eine Manpage in folgende Bereiche unterteilt, eingeklammerte Abschnitte sind optional:
+NAME
+
+Name des Programms gefolgt von einer einzeiligen Kurzbeschreibung.SYNOPSIS
+
+Für Programme wird hier eine vollständige Liste der Parameter und Optionen beschrieben.DESCRIPTION
+
+Eine Textbeschreibung der Funktionsweise des Befehls oder der Funktion. (Üblicherweise jedoch nicht der Benutzung, siehe unten.)OPTIONS / FLAGS
+
+Eine üblicherweise alphabetisch sortierte Liste der Optionen und ihrer zulässigen Argumente.(USAGE)
+
+Eine Anleitung für den Einsatz des Programms.EXIT STATUS
+
+Beschreibung möglicher Rückgabewerte und deren Bedeutung.(EXAMPLES)
+
+Einige Beispiele für die Benutzung.(FILES)
+
+Falls bestimmte Dateien (etwa Konfigurationsdateien) an der Funktion des Programms beteiligt sind oder durch die Ausführung desselben betroffen sind, so werden sie hier aufgeführt und ihre Funktion beschrieben.SEE ALSO
+
+Eine Liste ähnlicher oder verwandter Befehle oder Funktionen, bei betroffenen Dateien wird hier auf die entsprechenden Einträge in Section 5 verwiesen.
+
+
+
+.Sh  Gliederung, Sections 
+Manpages sind in weiten Teilen ausdrücklich nicht durch den POSIX-Standard (IEEE Std 1003.1) standardisiert, sondern die Standardisierung erfolgte lediglich für das absolut notwendige Minimum. Allerdings hat sich eine auf den meisten Unix-Derivaten ähnliche Einteilung in sogenannte Sections (Kapitel, Bereiche) eingebürgert, die sich an die ursprüngliche Einteilung anlehnt.
+Beispielhaft hier die Sektionen unter AIX (Titel in Locale C):
+
+(1) User Commands and Daemons („Anwender-Kommandos und Hintergrunddienste“)
+(2) System Calls and Kernel Services („Systemaufrufe und -dienste“)
+(3) Subroutines („Unterprogramme“)
+(4) Special Files, Device Drivers and Hardware („Geräte“)
+(5) Configuration Files („Konfigurationsdateien“)
+(6) Games („Spiele“)
+(7) Miscellaneous Commands („Verschiedenes“)
+(8) Administrative Commands and Daemons („Verwaltung“)So verweist die Notation jail(8) auf die Handbuchseite des FreeBSD Systemverwaltungs-Kommando jail, wohingegen die Notation jail(2) auf die Handbuchseite des FreeBSD Systemaufrufs jail hindeutet.
+
+
+
+.Sh  Aufbau einzelner Manpages 
+Eine ähnlich informelle Konvention wie bei den Kapiteln hat sich auch beim Aufbau der einzelnen Artikel eingebürgert. Stark von dieser Konvention weichen lediglich Systeme ab, die ihre Systemkommandos von der GNU-Initiative beziehen (Linux, FreeBSD etc.), weil das GNU-Projekt versucht, Manpages durch in deren Augen bessere Alternativen (Texinfo) abzulösen. Dennoch existieren Manpages auch für Programme, welche diese Art der Dokumentation nicht mitliefern, da solche für einzelne Linux-Distributionen erstellt worden sind (so schreibt das Debian-Projekt vor, dass alle Programme eine Manpage haben sollten); vielfach sind dies allerdings nur Kurzbeschreibungen, manchmal veraltet, meist nur in englischer Sprache verfügbar, darüber hinaus werden sie nicht bei jedem System mitgeliefert.
+Typischerweise ist eine Manpage in folgende Bereiche unterteilt, eingeklammerte Abschnitte sind optional:
+NAME
+
+Name des Programms gefolgt von einer einzeiligen Kurzbeschreibung.SYNOPSIS
+
+Für Programme wird hier eine vollständige Liste der Parameter und Optionen beschrieben.DESCRIPTION
+
+Eine Textbeschreibung der Funktionsweise des Befehls oder der Funktion. (Üblicherweise jedoch nicht der Benutzung, siehe unten.)OPTIONS / FLAGS
+
+Eine üblicherweise alphabetisch sortierte Liste der Optionen und ihrer zulässigen Argumente.(USAGE)
+
+Eine Anleitung für den Einsatz des Programms.EXIT STATUS
+
+Beschreibung möglicher Rückgabewerte und deren Bedeutung.(EXAMPLES)
+
+Einige Beispiele für die Benutzung.(FILES)
+
+Falls bestimmte Dateien (etwa Konfigurationsdateien) an der Funktion des Programms beteiligt sind oder durch die Ausführung desselben betroffen sind, so werden sie hier aufgeführt und ihre Funktion beschrieben.SEE ALSO
+
+Eine Liste ähnlicher oder verwandter Befehle oder Funktionen, bei betroffenen Dateien wird hier auf die entsprechenden Einträge in Section 5 verwiesen.
+
+
+
+.Sh  Handhabung 
+ 
+Auf Manpages in bestimmten Sektionen wird gewöhnlich in der Form Eintragstitel(N) verwiesen, wobei N die Nummer des jeweiligen Abschnitts ist, etwa syslogd(1) oder syslogd(8). Für die meisten Programme gibt es nur einen Abschnitt. Wird beim Aufruf von man keine Abschnittsnummer angegeben, so wird der erste gefundene Abschnitt angezeigt.
+Die Manpages liegen als Einzeldokumente standardgemäß unter /usr/share/man, und zwar in einer festgelegten Directory-Hierarchie, die Locale (lokalsprachliche Übersetzungen der grundsätzlich in Englisch verfassten Dokumente), Section etc. abbildet. Von den meisten Implementierungen von man wird zwar auch die Environment-Variable MANPATH verstanden, aber deren Verwendung ist durch den POSIX-Standard ausdrücklich nicht gedeckt.Mit dem Kommando apropos, das oft ein Wrapper oder Alias für man -k ist, kann man die Whatis-Datenbank nach Stichwörtern durchsuchen. Als Antwort erhält man eine Liste der gefundenen Einträge samt Section-Nummer, die man einem erneuten Aufruf von man dann als Argument übergeben kann.
+
+
+
+.Sh  Weblinks 
+Ken Thompson, Dennis Ritchie: Unix Programmer’s Manual. Lucent Technologies, 3. November 1971, abgerufen am 10. September 2017 (englisch, die erste Ausgabe des Unix Programmer’s Manual vom 3. November 1971 ist hier als Scan, Postscript- und PDF-Dateiformat verfügbar). 
+BSD: man(1) – OpenBSD General Commands Manual
+GNU: man(1) – Debian GNU/Linux Ausführbare Programme oder Shell-Befehle Handbuchseite
+POSIX: man – Open Group Base Specification
+weitere man pages für andere Betriebssysteme wie AIX, HP-UX, IRIX, Minix, …, Xenix
+
+
+
+.Sh  Einzelnachweise 
+
+.Ed
+.Sh Links
+.It
+.Xr AIX
+.It
+.Xr Apropos (Unix)
+.It
+.Xr Berkeley Software Distribution
+.It
+.Xr Betriebssystem
+.It
+.Xr Chroot
+.It
+.Xr Computerspiel
+.It
+.Xr Daemon
+.It
+.Xr Debian
+.It
+.Xr Dennis Ritchie
+.It
+.Xr Directory
+.It
+.Xr Englische Sprache
+.It
+.Xr FreeBSD
+.It
+.Xr GNU
+.It
+.Xr Gerätetreiber
+.It
+.Xr HP-UX
+.It
+.Xr Handbuch
+.It
+.Xr Hardware
+.It
+.Xr IRIX
+.It
+.Xr Ken Thompson
+.It
+.Xr Kernel (Betriebssystem)
+.It
+.Xr Konfigurationsdatei
+.It
+.Xr Linux-Distribution
+.It
+.Xr Locale
+.It
+.Xr Makro
+.It
+.Xr Man (Unix)
+.It
+.Xr Minix (Betriebssystem)
+.It
+.Xr Notation
+.It
+.Xr OpenBSD
+.It
+.Xr Open Group
+.It
+.Xr POSIX
+.It
+.Xr Portable Operating System Interface
+.It
+.Xr Rxvt
+.It
+.Xr Systemaufruf
+.It
+.Xr Texinfo
+.It
+.Xr Troff
+.It
+.Xr Unix
+.It
+.Xr Unix-Kommando
+.It
+.Xr Unix-Kommandos
+.It
+.Xr Whatis (Unix)
+.It
+.Xr Wrapper (Software)
+.It
+.Xr Xenix
+.It
+.Xr Xterm
+
