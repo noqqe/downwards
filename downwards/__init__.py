@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 import sys
+import tempfile
+import subprocess
 import click
 import wikipedia
 import wikitextparser as wtp
@@ -72,15 +74,29 @@ def render_article(article, language, template, date):
             date=date,
             )
 
-    print(rendered)
+    return rendered
 
+def man_wrapper(content):
+    _, tmpfile = tempfile.mkstemp(prefix="man-", text=True, suffix=".1")
+    with open(tmpfile, 'w') as f:
+        f.write(content)
+
+    subprocess.call(['man', tmpfile])
+
+    return True
 
 @click.command()
 @click.option('--language', '-l', default='de', help='Language for wikipedia')
+@click.option('--stdout', '-s', default=False, is_flag=True, help='Print to stdout')
 @click.argument('article')
-def main(article, language):
+def main(article, language, stdout):
     result = get_article(article, language)
-    render_article(article=result, language=language, template=mandoc, date=str(datetime.date.today()))
+    rendered = render_article(article=result, language=language, template=mandoc, date=str(datetime.date.today()))
+
+    if stdout:
+        print(rendered)
+    else:
+        man_wrapper(rendered)
 
 
 if __name__ == '__main__':
