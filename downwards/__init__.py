@@ -5,10 +5,11 @@ import click
 import wikipedia
 import wikitextparser as wtp
 from mako.template import Template
+import datetime
 
 
 mandoc = '''
-.Dd $Mdocdate: 30.11.2019 $
+.Dd ${date} $
 .Dt Wikipedia ${lang}
 .Os
 .Sh NAME
@@ -56,7 +57,7 @@ def flatten_content_hierarchy(article):
     return flt
 
 
-def render_article(article, language, template=mandoc):
+def render_article(article, language, template, date):
 
     mdoc = Template(template)
 
@@ -67,7 +68,8 @@ def render_article(article, language, template=mandoc):
             links=article.links,
             sections=sections,
             url=article.url,
-            lang=language
+            lang=language,
+            date=date,
             )
 
     print(rendered)
@@ -78,7 +80,7 @@ def render_article(article, language, template=mandoc):
 @click.argument('article')
 def main(article, language):
     result = get_article(article, language)
-    render_article(article=result, language=language, template=mandoc)
+    render_article(article=result, language=language, template=mandoc, date=str(datetime.date.today()))
 
 
 if __name__ == '__main__':
