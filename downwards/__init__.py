@@ -14,14 +14,7 @@ mandoc = '''
 .Sh NAME
 .Nm ${title}
 .Nd ${url}
-% for section in sections:
-    % if loop.index == 0:
-.Sh Zusammenfassung
-    % else:
-.Sh ${section.title}
-    % endif
-${section.contents}
-% endfor
+${sections}
 .Ed
 .Sh Links
 .It
@@ -31,7 +24,7 @@ ${section.contents}
 '''
 
 
-def get_article(name, language="de"):
+def get_article(name, language):
 
     if name is None:
         sys.exit(1)
@@ -42,11 +35,27 @@ def get_article(name, language="de"):
     return article
 
 
+def flatten_content_hierarchy(article):
+
+    n = '\n'
+    flt = ".Sh Zusammenfassung" + n + n
+
+    sections = wtp.parse(article.content).sections
+
+    for section in sections:
+        if not section.title == "":
+            flt = flt + ".Sh " + section.title + n + n
+        sec = wtp.parse(section.contents).sections[0]
+        flt = flt + sec.contents + n
+
+    return flt
+
+
 def render_article(article, language, template=mandoc):
 
     mdoc = Template(template)
 
-    sections = wtp.parse(article.content).sections
+    sections = flatten_content_hierarchy(article)
 
     rendered = mdoc.render(
             title=article.title,
@@ -63,8 +72,9 @@ def render_article(article, language, template=mandoc):
 @click.option('--language', '-l', default='de', help='Language for wikipedia')
 @click.argument('article')
 def main(article, language):
-    result = get_article(article)
+    result = get_article(article, language)
     render_article(article=result, language=language, template=mandoc)
+
 
 if __name__ == '__main__':
     main()
