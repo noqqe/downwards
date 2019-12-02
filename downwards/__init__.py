@@ -30,7 +30,12 @@ def get_article(name, language):
         sys.exit(1)
 
     wikipedia.set_lang(language)
-    article = wikipedia.page(name)
+
+    try:
+        article = wikipedia.page(name)
+    except wikipedia.exceptions.PageError:
+        print("Error: Page {} not found!".format(name))
+        sys.exit(1)
 
     return article
 
