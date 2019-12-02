@@ -31,7 +31,7 @@ if CURRENT_PYTHON < REQUIRED_PYTHON:
 
 # Package meta-data.
 NAME = 'downwards'
-DESCRIPTION = 'A hackspaces entertainment system'
+DESCRIPTION = 'downwards lets you read a wikipedia page on command line as a manpage.'
 URL = 'https://github.com/noqqe/downwards/'
 EMAIL = None
 AUTHOR = 'Florian Baumann'
@@ -39,8 +39,8 @@ REQUIRES_PYTHON = '>={}.{}'.format(*REQUIRED_PYTHON)
 VERSION = None  # read from __version__.py
 
 URLS = dict(
-    Source='https://github.com/k4cg/downwards/',
-    Documentation='https://github.com/k4cg/downwards/docs/',
+    Source='https://github.com/noqqe/downwards/',
+    Documentation='https://github.com/noqqe/downwards/',
 )
 
 # What packages are required for this module to be executed?
