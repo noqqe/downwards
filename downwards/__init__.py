@@ -56,6 +56,10 @@ def flatten_content_hierarchy(article):
         sec = wtp.parse(section.contents).sections[0]
         flt = flt + sec.contents + n
 
+    # remove double newlines
+    flt = flt.replace('\n\n\n', '\n')
+    flt = flt.replace('\n\n', '\n')
+
     return flt
 
 
