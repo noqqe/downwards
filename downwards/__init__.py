@@ -41,6 +41,11 @@ def get_article(name, language):
     except wikipedia.exceptions.PageError:
         print("Error: Page {} not found!".format(name))
         sys.exit(1)
+    except wikipedia.exceptions.DisambiguationError as e:
+        print("Error: Page {} is disambigous!".format(name))
+        print("{}".format(e))
+        sys.exit(1)
+
 
     return article
 
