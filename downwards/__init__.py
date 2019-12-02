@@ -19,7 +19,7 @@ mandoc = '''
 .Sh NAME
 .Nm ${title}
 .Nd ${url}
-${sections}
+${content}
 .Ed
 .Sh Links
 .It
@@ -69,6 +69,7 @@ def umlaut_conversion(content):
     flt = flt.replace('ä', 'ae')
     flt = flt.replace('ö', 'oe')
     flt = flt.replace('ü', 'ue')
+    flt = flt.replace('ß', 'ss')
     flt = flt.replace('Ä', 'Ae')
     flt = flt.replace('Ü', 'Ue')
     flt = flt.replace('Ö', 'Oe')
@@ -147,14 +148,16 @@ def render_article(article, language, template, date):
 
     mdoc = Template(template)
 
-    article = flatten_content_hierarchy(article)
-    article = remove_multiple_newlines(article)
-    article = umlaut_conversion(article)
+    content = flatten_content_hierarchy(article)
+    content = remove_multiple_newlines(content)
+    content = umlaut_conversion(content)
+
+    title = umlaut_conversion(article.title)
 
     rendered = mdoc.render(
-            title=article.title,
+            title=title,
             links=article.links,
-            sections=article,
+            content=content,
             url=article.url,
             lang=language,
             date=date,
