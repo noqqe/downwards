@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 import sys
 import tempfile
 import subprocess
+import unidecode
+import datetime
 import click
 import wikipedia
 import wikitextparser as wtp
 from mako.template import Template
-import datetime
 
 
 mandoc = '''
@@ -59,6 +61,17 @@ def flatten_content_hierarchy(article):
     # remove double newlines
     flt = flt.replace('\n\n\n', '\n')
     flt = flt.replace('\n\n', '\n')
+
+    # remove german umlauts
+    flt = flt.replace('ä', 'ae')
+    flt = flt.replace('ö', 'oe')
+    flt = flt.replace('ü', 'ue')
+    flt = flt.replace('Ä', 'Ae')
+    flt = flt.replace('Ü', 'Ue')
+    flt = flt.replace('Ö', 'Oe')
+
+    # remove unicode chars that man(1) does not understand
+    flt = unidecode.unidecode(flt)
 
     return flt
 

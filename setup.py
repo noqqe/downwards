@@ -49,6 +49,7 @@ REQUIRED = [
     'wikipedia',
     'wikitextparser',
     'mako',
+    'unidecode',
 ]
 
 # The rest you shouldn't have to touch too much :)
