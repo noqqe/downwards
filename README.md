@@ -4,7 +4,7 @@ You want to read a wikipedia page right from your terminal, right? RIGHT?
 
 I know because I wanted it.
 
-`downwards` is download the article you want, converts it to `mdoc` and
+`downwards` is downloading the article you want, converts it to `mdoc` and
 displays it using your local `man` binary.
 
 ```
@@ -21,6 +21,9 @@ Options:
   -s, --stdout         Print to stdout
   --help               Show this message and exit.
 ```
+
+I found it very helpful to set `export MANWIDTH=80` for nicely readable
+documents.
 
 # Installation
 
