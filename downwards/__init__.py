@@ -12,19 +12,16 @@ import wikitextparser as wtp
 from mako.template import Template
 
 
-mandoc = '''
-.Dd ${date} $
+mandoc = '''.Dd ${date} $
 .Dt Wikipedia ${lang}
 .Os
 .Sh NAME
 .Nm ${title}
 .Nd ${url}
 ${content}
-.Ed
 .Sh Links
-.It
 % for link in links:
-.Xr ${link}
+.Xr ${link} 1
 % endfor
 '''
 
