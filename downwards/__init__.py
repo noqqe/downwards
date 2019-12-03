@@ -190,6 +190,10 @@ def man_wrapper(content):
 @click.option('--stdout', '-s', default=False, is_flag=True, help='Print to stdout')
 @click.argument('article')
 def main(article, language, stdout):
+    """
+    downwards lets you read a wikipedia page on command line as a manpage.
+
+    """
 
     result = get_article(article, language)
     rendered = render_article(article=result, language=language, template=mandoc, date=str(datetime.date.today()))
