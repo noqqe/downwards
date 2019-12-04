@@ -12,19 +12,16 @@ import wikitextparser as wtp
 from mako.template import Template
 
 
-mandoc = '''
-.Dd ${date} $
+mandoc = '''.Dd ${date} $
 .Dt Wikipedia ${lang}
 .Os
 .Sh NAME
 .Nm ${title}
 .Nd ${url}
 ${content}
-.Ed
 .Sh Links
-.It
 % for link in links:
-.Xr ${link}
+.Xr ${link} 1
 % endfor
 '''
 
@@ -190,6 +187,10 @@ def man_wrapper(content):
 @click.option('--stdout', '-s', default=False, is_flag=True, help='Print to stdout')
 @click.argument('article')
 def main(article, language, stdout):
+    """
+    downwards lets you read a wikipedia page on command line as a manpage.
+
+    """
 
     result = get_article(article, language)
     rendered = render_article(article=result, language=language, template=mandoc, date=str(datetime.date.today()))
