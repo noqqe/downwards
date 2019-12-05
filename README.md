@@ -25,6 +25,8 @@ Options:
 I found it very helpful to set `export MANWIDTH=80` for nicely readable
 documents.
 
+![Image of an Example Wikipedia Page](https://raw.githubusercontent.com/noqqe/downwards/master/screenshot.png)
+
 # Installation
 
 Installation
