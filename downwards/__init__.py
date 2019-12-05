@@ -125,10 +125,14 @@ def flatten_content_hierarchy(article):
     sections = wtp.parse(article.content).sections
 
     for section in sections:
-        if not section.title == "":
-            flt = flt + ".Sh " + section.title + n
+
+        # grab first section of subsection (see func description)
         sec = wtp.parse(section.contents).sections[0]
-        flt = flt + sec.contents + n
+
+        # Only add non-empty sections
+        if len(sec.contents) > 0:
+            flt = flt + ".Sh " + section.title + n
+            flt = flt + sec.contents + n
 
     return flt
 
