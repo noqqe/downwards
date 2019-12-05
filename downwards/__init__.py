@@ -97,7 +97,7 @@ def remove_multiple_newlines(content):
 
     return flt
 
-def flatten_content_hierarchy(article):
+def flatten_content_hierarchy(article, language='en'):
     """
     mdoc only knows about 1 layer of headlines (.Sh)
     In this function we convert
@@ -120,7 +120,11 @@ def flatten_content_hierarchy(article):
     :returns: str
     """
     n = '\n'
-    flt = ".Sh Zusammenfassung" + n + n
+
+    if language == "de":
+        flt = ".Sh Zusammenfassung" + n
+    else:
+        flt = ".Sh Summary" + n
 
     sections = wtp.parse(article.content).sections
 
@@ -151,7 +155,7 @@ def render_article(article, language, template, date):
 
     mdoc = Template(template)
 
-    content = flatten_content_hierarchy(article)
+    content = flatten_content_hierarchy(article=article, language=language)
     content = remove_multiple_newlines(content)
     content = umlaut_conversion(content)
 
