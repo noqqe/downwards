@@ -20,9 +20,11 @@ mandoc = '''.Dd ${date} $
 .Nd ${url}
 ${content}
 .Sh Links
+.Bl -column LOCAL -compact
 % for link in links:
-.Xr ${link} 1
+.It Li ${link}
 % endfor
+.El
 '''
 
 
