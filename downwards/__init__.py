@@ -135,7 +135,8 @@ def flatten_content_hierarchy(article, language='en'):
 
         # Only add non-empty sections
         if len(sec.contents) > 0:
-            flt = flt + ".Sh " + section.title + n
+            if section.title is not None:
+                flt = flt + ".Sh " + str(section.title) + n
             flt = flt + sec.contents + n
 
     return flt
